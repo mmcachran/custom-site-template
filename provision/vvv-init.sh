@@ -156,7 +156,7 @@ fi
 
 if [[ ! -z "${FORCE_CHANGE_WP_VERSION}" ]]; then
   if [[ -f "${VVV_PATH_TO_SITE}/public_html/wp-includes/version.php" ]]; then
-    CURRENT_VERSION=`grep wp_version "${VVV_PATH_TO_SITE}/public_html/wp-includes/version.php" | awk -F "'" '{print $2}' | grep -E "\d+"`
+    CURRENT_VERSION=`grep wp_version "${VVV_PATH_TO_SITE}/public_html/wp-includes/version.php" | awk -F "'" '{print $2}' | awk "NF > 0"`
 
     echo "Current Version: ${CURRENT_VERSION}"
     echo "WP VERSION: ${WP_VERSION}"
